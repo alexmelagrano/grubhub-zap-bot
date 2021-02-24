@@ -1,0 +1,22 @@
+html
+  block vars
+  head
+    link(inline rel="stylesheet" href="../public/main.css")
+    block head
+  body
+    #container
+      h1 hello world!
+      br
+      br
+      p endpoints that are available:
+      ul
+        li 
+          strong GET /nearby_restaurants
+          br
+          | @param address: encoded string
+          br
+          | @param food, optional: encoded string
+          br
+          br
+          | Fetches the top 5 restaurants near the provided address, can be filtered by the optional "food" param.
+          | Will 404 if an address is not provided.

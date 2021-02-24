@@ -27,6 +27,6 @@ app.use(bodyParser.json())
 PageRouter.config(app)
 GrubhubRouter.config(app)
 
-app.listen(config.port, function () {
+app.listen(process.env.PORT || config.port, function () {
     console.log('app listening at port %s', config.port)
 })

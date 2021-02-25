@@ -29,7 +29,7 @@ exports.resolveLocation = async (req) => {
   return { lat, long }
 }
 
-exports.refreshBearerToken = async () => {
+const refreshBearerToken = async () => {
   let stillSearching = true
   const browser = await puppeteer.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox'] })
   const page = await browser.newPage()
@@ -57,4 +57,7 @@ exports.refreshBearerToken = async () => {
   })
 
   await browser.close()
+  setTimeout(refreshBearerToken, Constants.TOKEN_REFRESH_INTERVAL)
 }
+
+exports.refreshBearerToken = refreshBearerToken

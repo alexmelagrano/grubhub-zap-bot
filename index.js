@@ -30,6 +30,6 @@ app.use(bodyParser.json())
 PageRouter.config(app)
 GrubhubRouter.config(app)
 
-setInterval(Utils.refreshBearerToken, Constants.TOKEN_REFRESH_INTERVAL)
+Utils.refreshBearerToken()
 
 app.listen(process.env.PORT || config.port, () => console.log('app listening at port %s', config.port))

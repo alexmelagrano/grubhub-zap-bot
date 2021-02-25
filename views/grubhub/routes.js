@@ -1,6 +1,6 @@
 const GrubhubService = require('./service')
 
-exports.config = function (app) {
+exports.config = app => {
     app.get('/nearby_restaurants', [
         GrubhubService.fetchNearby
     ])

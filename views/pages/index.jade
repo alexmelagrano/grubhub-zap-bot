@@ -15,8 +15,12 @@ html
           br
           | @param address: encoded string
           br
+          | @param latitude: string
+          br
+          | @param longitude: string
+          br
           | @param food, optional: encoded string
           br
           br
           | Fetches the top 5 restaurants near the provided address, can be filtered by the optional "food" param.
-          | Will 404 if an address is not provided.
+          | Will 404 if an address or lat/long coordinates are not provided.

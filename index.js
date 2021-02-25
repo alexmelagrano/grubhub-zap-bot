@@ -6,6 +6,7 @@ const config = require('./common/config.js')
 const PageRouter = require('./views/pages/routes')
 const GrubhubRouter = require('./views/grubhub/routes')
 
+require('dotenv').config()
 const app = express()
 
 app.use(function (req, res, next) {

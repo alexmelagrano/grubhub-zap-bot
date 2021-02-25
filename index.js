@@ -5,6 +5,8 @@ const config = require('./common/config.js')
 
 const PageRouter = require('./views/pages/routes')
 const GrubhubRouter = require('./views/grubhub/routes')
+const Constants = require('./views/grubhub/constants')
+const Utils = require('./views/grubhub/utils')
 
 require('dotenv').config()
 const app = express()
@@ -27,5 +29,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.use(bodyParser.json())
 PageRouter.config(app)
 GrubhubRouter.config(app)
+
+setInterval(Utils.refreshBearerToken, Constants.TOKEN_REFRESH_INTERVAL)
 
 app.listen(process.env.PORT || config.port, () => console.log('app listening at port %s', config.port))
